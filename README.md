@@ -1,2 +1,3 @@
 # j-components-react
-Lightweight easy-to-use react component library
+
+Easy-to-use react component library for the end user

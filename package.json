@@ -1,6 +1,6 @@
 {
   "name": "j-components-react",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Easy-to-use react component library for the end user",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,11 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",

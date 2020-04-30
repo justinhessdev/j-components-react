@@ -1,6 +1,6 @@
 {
   "name": "j-components-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easy-to-use react component library for the end user",
   "main": "index.js",
   "scripts": {

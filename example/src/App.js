@@ -1,10 +1,26 @@
 import React from 'react'
 
-import { ExampleComponent } from 'test-lib'
-import 'test-lib/dist/index.css'
+import { SearchDropdown } from 'j-components-react'
+import 'j-components-react/dist/index.css'
+
+const objs2 = [
+  { id: '1', text: 'Blue', value: 'bl' },
+  { id: '2', text: 'Yellow', value: 'ye' },
+  { id: '3', text: 'Green', value: 'gr' },
+  { id: '4', text: 'Red', value: 're' },
+  { id: '5', text: 'Purple', value: 'pu' }
+]
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return (
+    <SearchDropdown items={objs2} defaultValue={'Scooby Doo'}>
+      {objs2.map((obj) => (
+        <SearchDropdown.Item key={obj.id} filterKey={obj.id}>
+          <div style={{ color: 'blue' }}>{obj.text}</div>
+        </SearchDropdown.Item>
+      ))}
+    </SearchDropdown>
+  )
 }
 
 export default App

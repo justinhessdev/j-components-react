@@ -1,13 +1,13 @@
 {
-  "name": "test-lib-example",
-  "homepage": "https://justinhessdev.github.io/test-lib",
+  "name": "j-components-react-example",
+  "homepage": "https://justinhessdev.github.io/j-components-react",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
     "react-scripts": "file:../node_modules/react-scripts",
-    "test-lib": "file:.."
+    "j-components-react": "file:.."
   },
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",

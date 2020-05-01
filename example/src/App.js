@@ -3,7 +3,7 @@ import React from 'react'
 import { SearchDropdown } from 'j-components-react'
 import 'j-components-react/dist/index.css'
 
-const objs2 = [
+const items = [
   { id: '1', text: 'Blue', value: 'bl' },
   { id: '2', text: 'Yellow', value: 'ye' },
   { id: '3', text: 'Green', value: 'gr' },
@@ -13,10 +13,10 @@ const objs2 = [
 
 const App = () => {
   return (
-    <SearchDropdown items={objs2} defaultValue={'Scooby Doo'}>
-      {objs2.map((obj) => (
-        <SearchDropdown.Item key={obj.id} filterKey={obj.id}>
-          <div style={{ color: 'blue' }}>{obj.text}</div>
+    <SearchDropdown items={items} defaultValue={'Red'}>
+      {items.map((item) => (
+        <SearchDropdown.Item key={item.id} filterKey={item.id}>
+          <div>{item.text}</div>
         </SearchDropdown.Item>
       ))}
     </SearchDropdown>

@@ -14,21 +14,38 @@ npm install --save j-components-react
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
-
+import React, { useCallback } from 'react'
 import { SearchDropdown } from 'j-components-react'
 import 'j-components-react/dist/index.css'
 
-const Example = ({ items }) => (
-      <SearchDropdown items={items} defaultValue={'Scooby Doo'}>
+const items = [
+  { id: '1', text: 'Blue', value: 'bl' },
+  { id: '2', text: 'Yellow', value: 'ye' },
+  { id: '3', text: 'Green', value: 'gr' },
+  { id: '4', text: 'Red', value: 're' },
+  { id: '5', text: 'Purple', value: 'pu' }
+]
+
+const App = () => {
+  const handleClick = useCallback((val) => {
+    // Do something
+    console.log('logging clicked item', val) // {id: "4", text: "Red", value: "re"}
+  }, [])
+  return (
+    <div className='App'>
+      <SearchDropdown items={items} defaultValue={'Red'}>
         {items.map((item) => (
-          <SearchDropdown.Item key={item.id} filterKey={item.id}>
+          <SearchDropdown.Item
+            key={item.id} // required -- use id
+            filterKey={item.id} // required -- use id
+            onClick={handleClick} // optional
+          >
             {item.text}
           </SearchDropdown.Item>
         ))}
       </SearchDropdown>
-    )
-  }
+    </div>
+  )
 }
 ```
 

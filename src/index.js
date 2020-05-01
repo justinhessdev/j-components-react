@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { SearchDropdown } from "./src/lib/SearchDropdown/SearchDropdown";
+import { SearchDropdown } from "./SearchDropdown/SearchDropdown";
 
 ReactDOM.render(
   <React.StrictMode>

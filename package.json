@@ -1,9 +1,11 @@
 {
   "name": "j-components-react",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Easy-to-use react component library for the end user",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
+    "start": "webpack --watch",
+    "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,25 +19,25 @@
     "url": "https://github.com/justinhessdev/j-components-react/issues"
   },
   "homepage": "https://github.com/justinhessdev/j-components-react#readme",
-  "dependencies": {
-    "@babel/preset-react": "^7.9.4",
-    "node-sass": "^4.14.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-react"
-    ]
-  },
+  "dependencies": {},
   "peerDependencies": {
-    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.6",
-    "parcel-bundler": "^1.12.4"
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
+    "node-sass": "^4.14.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   }
 }

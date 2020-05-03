@@ -27,7 +27,7 @@ const items = [
 
 const App = () => {
   const handleClick = useCallback((val) => {
-    console.error('logging clicked item', val) // {id: "4", text: "Red", value: "re"}
+    console.log('logging clicked item', val) // {id: "4", text: "Red", value: "re"}
   }, [])
   return (
     <div className='App'>

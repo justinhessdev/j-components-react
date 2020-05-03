@@ -1,6 +1,5 @@
 import React from 'react'
-
-import { ExampleComponent, SearchDropdown } from 'j-components-react'
+import { SearchDropdown } from 'j-components-react'
 import 'j-components-react/dist/index.css'
 
 const items = [
@@ -13,13 +12,19 @@ const items = [
 
 const App = () => {
   return (
-    <div>
-      <ExampleComponent text='Create React Library Example 😄' />
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: '3em'
+      }}
+    >
       <SearchDropdown items={items} defaultValue={'Red'}>
         {items.map((item) => (
           <SearchDropdown.Item
-            key={item.id} // required -- use id
-            filterKey={item.id} // required -- use id
+            key={item.id} // required
+            filterKey={item.id} // required
           >
             {item.text}
           </SearchDropdown.Item>

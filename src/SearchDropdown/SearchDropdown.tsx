@@ -33,7 +33,7 @@ function useDropdownContext() {
 }
 
 interface ItemProps {
-  children: any
+  children: string | JSX.Element
   filterKey: string
   onClick?: any
 }
@@ -107,7 +107,7 @@ Object.filter = (
     }, {}) // reduced to object of filtered key value pairs
 
 interface DropdownProps {
-  children: any
+  children: JSX.Element[] | JSX.Element
   items: Array<{ id: string; text: string; value: string }>
   defaultValue: string
 }

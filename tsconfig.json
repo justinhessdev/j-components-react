@@ -3,6 +3,7 @@
     "outDir": "dist",
     "module": "esnext",
     "target": "es5",
+    "types": ["react", "jest"],
     "lib": ["dom", "esnext"],
     "moduleResolution": "node",
     "jsx": "react",

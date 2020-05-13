@@ -1,6 +1,5 @@
 import React from 'react'
 import { SearchDropdown } from 'j-components-react'
-import 'j-components-react/dist/index.css'
 
 const items = [
   { id: '1', text: 'Blue', value: 'bl' },

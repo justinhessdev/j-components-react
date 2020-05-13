@@ -6,7 +6,12 @@ import React, {
   useCallback
 } from 'react'
 import PropTypes from 'prop-types'
-import styles from './SearchDropdown.modules.css'
+import {
+  SearchDropdownWrapper,
+  SearchDropdownInput,
+  SearchDropdownContent,
+  SearchDropdownItem
+} from './SearchDropdown.styled'
 
 interface IDropdownContext {
   value: string
@@ -75,9 +80,9 @@ export function Item({ children, filterKey, onClick }: ItemProps) {
    * filteredOptions is an object of filterKey value pairs
    */
   return filterOptions[filterKey] ? (
-    <div className={styles.searchDropdownItem} onClick={handleSelection}>
+    <SearchDropdownItem onClick={handleSelection}>
       {children}
-    </div>
+    </SearchDropdownItem>
   ) : null
 }
 
@@ -125,7 +130,6 @@ export function SearchDropdown({
   const inputRef = useRef<any>()
   const contentRef = useRef<any>()
 
-  // Using React top level api toArray to flatten children in cases where children contains array elements and single elements
   useEffect(() => {
     const opts = items.reduce(function (map, obj) {
       map[obj.id] = obj.text
@@ -207,9 +211,8 @@ export function SearchDropdown({
         items
       }}
     >
-      <div className={styles.searchDropdownWrapper}>
-        <input
-          className={styles.searchDropdownInput}
+      <SearchDropdownWrapper>
+        <SearchDropdownInput
           onFocus={handleFocus}
           value={value}
           onChange={(e) => searchFilter(e.target.value)}
@@ -217,11 +220,11 @@ export function SearchDropdown({
           ref={inputRef}
         />
         {active && (
-          <div className={styles.searchDropdownContent} ref={contentRef}>
+          <SearchDropdownContent ref={contentRef}>
             {children}
-          </div>
+          </SearchDropdownContent>
         )}
-      </div>
+      </SearchDropdownWrapper>
     </DropdownContext.Provider>
   )
 }

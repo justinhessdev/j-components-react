@@ -1,11 +1,13 @@
-.searchDropdownWrapper {
+import styled from 'styled-components'
+
+export const SearchDropdownWrapper = styled.div`
   position: relative;
   display: inline-block;
   width: 13em;
   min-height: 40px;
-}
-.searchDropdownWrapper .searchDropdownInput {
-  /* styling */
+`
+
+export const SearchDropdownInput = styled.input`
   width: 100%;
   height: 40px;
   background-color: white;
@@ -24,19 +26,19 @@
   background-size: 5px 5px, 5px 5px, 1px 25px;
   background-repeat: no-repeat;
   outline: none;
-  /* reset */
-
   margin: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
-}
-.searchDropdownWrapper .searchDropdownInput:hover {
-  opacity: 0.9;
-}
-.searchDropdownWrapper .searchDropdownContent {
+
+  &:hover {
+    opacity: 0.9;
+  }
+`
+
+export const SearchDropdownContent = styled.div`
   position: absolute;
   top: 40px;
   z-index: 999;
@@ -44,8 +46,8 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-top: none;
   background-color: white;
-}
-.searchDropdownItem {
+`
+export const SearchDropdownItem = styled.div`
   cursor: pointer;
   padding: 0 3.5em 0 1em;
   text-align: left;
@@ -53,7 +55,8 @@
   display: flex;
   align-items: center;
   min-height: 40px;
-}
-.searchDropdownWrapper .searchDropdownItem:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+`

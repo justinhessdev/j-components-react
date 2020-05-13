@@ -15,7 +15,6 @@ npm install --save j-components-react
 ```tsx
 import React, { useCallback } from 'react'
 import { SearchDropdown } from 'j-components-react'
-import 'j-components-react/dist/index.css'
 
 const items = [
   { id: '1', text: 'Blue', value: 'bl' },
@@ -26,8 +25,9 @@ const items = [
 ]
 
 const App = () => {
-  const handleClick = useCallback((val) => {
-    console.log('logging clicked item', val) // {id: "4", text: "Red", value: "re"}
+  const handleClick = useCallback((item) => {
+    console.log('logging clicked item', item)
+    // {id: "4", text: "Red", value: "re"}
   }, [])
   return (
     <div className='App'>

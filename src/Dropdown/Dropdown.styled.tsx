@@ -1,21 +1,23 @@
 import styled from 'styled-components'
 
-export const SearchDropdownWrapper = styled.div`
+export const DropdownWrapper = styled.div`
   position: relative;
   display: inline-block;
   width: 13em;
   min-height: 40px;
 `
 
-export const SearchDropdownInput = styled.input`
+export const DropdownSelection = styled.div`
   width: 100%;
   height: 40px;
+  display: flex;
+  align-items: center;
   background-color: white;
   font-size: 14px;
   color: #030303;
   line-height: 1.5em;
   padding: 0.5em 3.5em 0.5em 1em;
-  cursor: text;
+  cursor: pointer;
   text-align: left;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-image: linear-gradient(45deg, transparent 50%, #909090 50%),
@@ -37,8 +39,11 @@ export const SearchDropdownInput = styled.input`
     opacity: 0.9;
   }
 `
+export const DropdownPlaceholder = styled.div`
+  color: #787878;
+`
 
-export const SearchDropdownContent = styled.div`
+export const DropdownContent = styled.div`
   position: absolute;
   top: 40px;
   z-index: 999;
@@ -48,11 +53,11 @@ export const SearchDropdownContent = styled.div`
   background-color: white;
 `
 
-type TSearchDropdownItem = {
+type TDropdownItem = {
   isActive: boolean
 }
 
-export const SearchDropdownItem = styled.div<TSearchDropdownItem>`
+export const DropdownItem = styled.div<TDropdownItem>`
   cursor: pointer;
   padding: 0 3.5em 0 1em;
   text-align: left;

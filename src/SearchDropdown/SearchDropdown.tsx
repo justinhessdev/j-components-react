@@ -21,6 +21,7 @@ interface IDropdownContext {
   filterOptions: object
   setFilterOptions: any
   options: object
+  selectedItem: string
   setSelectedItem: any
   items: Array<{ id: string; text: string; value: string }>
 }
@@ -50,6 +51,7 @@ export function Item({ children, filterKey, onClick }: ItemProps) {
     filterOptions,
     setFilterOptions,
     options,
+    selectedItem,
     setSelectedItem,
     items
   } = useDropdownContext()
@@ -80,7 +82,10 @@ export function Item({ children, filterKey, onClick }: ItemProps) {
    * filteredOptions is an object of filterKey value pairs
    */
   return filterOptions[filterKey] ? (
-    <SearchDropdownItem onClick={handleSelection}>
+    <SearchDropdownItem
+      isActive={selectedItem === filterOptions[filterKey]}
+      onClick={handleSelection}
+    >
       {children}
     </SearchDropdownItem>
   ) : null
@@ -111,7 +116,7 @@ Object.filter = (
       return res
     }, {}) // reduced to object of filtered key value pairs
 
-interface DropdownProps {
+interface IDropdownProps {
   children: JSX.Element[] | JSX.Element
   items: Array<{ id: string; text: string; value: string }>
   defaultValue: string
@@ -121,7 +126,7 @@ export function SearchDropdown({
   children,
   items,
   defaultValue
-}: DropdownProps) {
+}: IDropdownProps) {
   const [value, setValue] = useState<string>(defaultValue || '')
   const [active, setActive] = useState<boolean>(false)
   const [options, setOptions] = useState<object>([])
@@ -207,6 +212,7 @@ export function SearchDropdown({
         filterOptions,
         setFilterOptions,
         options,
+        selectedItem,
         setSelectedItem,
         items
       }}

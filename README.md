@@ -10,6 +10,10 @@
 npm install --save j-components-react
 ```
 
+> Let me know if there is a component you would like me to implement
+>
+> Components: Search Input Dropdown, Single Select Dropdown, Toggle, Button
+
 ## Usage
 
 ```tsx

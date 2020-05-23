@@ -1,6 +1,6 @@
 # j-components-react
 
-> Easy-to-use React component library tailored to the end user
+> Simplistic React component library tailored to the developer
 
 [![NPM](https://img.shields.io/npm/v/j-components-react.svg)](https://www.npmjs.com/package/j-components-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders diff snapshot clicking button increments counter 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -3,11 +3,11 @@
+      data-testid=\\"component-counter\\"
+    >
+      <h1
+        data-testid=\\"counter-display\\"
+      >
+-       The count is 0
++       The count is 1
+      </h1>
+      <button
+        data-testid=\\"increment-button\\"
+      >
+        Increment"
+`;

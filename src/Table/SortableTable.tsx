@@ -39,16 +39,24 @@ export const SortableTable = ({
     setActiveHeader(val)
     const newArr = [...sortedRows]
     const sortRows = newArr.sort((a, b) => {
-      var nameA = a[val].toUpperCase() // ignore upper and lowercase
-      var nameB = b[val].toUpperCase() // ignore upper and lowercase
+      let valueA = a[val]
+      let valueB = b[val]
+
+      if (typeof valueA === 'string') {
+        valueA = a[val].toUpperCase() // ignore upper and lowercase
+      }
+
+      if (typeof valueB === 'string') {
+        valueB = b[val].toUpperCase() // ignore upper and lowercase
+      }
 
       // if ASC set to DESC
       if (lastDirection === 'ASC') {
         setDirection('DESC')
-        if (nameA < nameB) {
+        if (valueA < valueB) {
           return 1
         }
-        if (nameA > nameB) {
+        if (valueA > valueB) {
           return -1
         }
 
@@ -58,10 +66,10 @@ export const SortableTable = ({
 
       // otherwise DESC so set ASC
       setDirection('ASC')
-      if (nameA < nameB) {
+      if (valueA < valueB) {
         return -1
       }
-      if (nameA > nameB) {
+      if (valueA > valueB) {
         return 1
       }
 
@@ -83,6 +91,7 @@ export const SortableTable = ({
               <HeaderValue
                 className='header-content'
                 isActive={activeHeader === header.value}
+                direction={lastDirection}
               >
                 {header.value}
               </HeaderValue>

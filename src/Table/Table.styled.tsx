@@ -24,6 +24,7 @@ export const StyledTable = styled.table`
 `
 type THeaderValue = {
   isActive: boolean
+  direction: string
 }
 
 export const HeaderValue = styled.div<THeaderValue>`
@@ -32,9 +33,8 @@ export const HeaderValue = styled.div<THeaderValue>`
     display: inline-block;
     width: 2em;
     height: 1em;
-    background-image: ${({ isActive }) =>
-      isActive &&
-      'linear-gradient(45deg, transparent 50%, #909090 50%), linear-gradient(135deg, #909090 50%, transparent 50%)'};
+    background-image: ${({ isActive, direction }) =>
+      setBackgroundImage(isActive, direction)};
     background-position: ${({ isActive }) =>
       isActive &&
       'calc(12px) calc(1em - 7px), calc(100% - 10px) calc(1em - 7px)'};
@@ -42,3 +42,13 @@ export const HeaderValue = styled.div<THeaderValue>`
     background-repeat: no-repeat;
   }
 `
+
+function setBackgroundImage(isActive: boolean, direction: string) {
+  if (isActive && direction === 'ASC') {
+    return 'linear-gradient(45deg, transparent 50%, #909090 50%), linear-gradient(135deg, #909090 50%, transparent 50%)'
+  } else if (isActive && direction === 'DESC') {
+    return 'linear-gradient(135deg, transparent 50%, #909090 50%), linear-gradient(45deg, #909090 50%, transparent 50%)'
+  }
+
+  return 'none'
+}

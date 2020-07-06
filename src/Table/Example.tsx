@@ -2,9 +2,12 @@ import React from 'react'
 import { Table } from './Table'
 
 const items = [
-  { name: 'Justin', age: '32', location: 'New York' },
-  { name: 'Aaron', age: '35', location: 'New York' },
-  { name: 'Ben', age: '30', location: 'Texas' }
+  { name: 'Alexis', age: 29, location: 'New York' },
+  { name: 'Rachel', age: 25, location: 'Texas' },
+  { name: 'Ben', age: 27, location: 'Nevada' },
+  { name: 'Jack', age: 35, location: 'Alabama' },
+  { name: 'Max', age: 38, location: 'California' },
+  { name: 'Jessica', age: 37, location: 'Florida' }
 ]
 
 const headerCells = ['name', 'age', 'location']

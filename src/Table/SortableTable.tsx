@@ -1,23 +1,16 @@
-import React, {
-  useContext,
-  useState,
-  useRef,
-  useCallback,
-  useEffect
-} from 'react'
+import React, { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { Table } from './Table'
-import { StyledTable } from './Table.styled'
-
-// const tableItems = [
-//   { name: 'Justin', age: '32', location: 'New York' },
-//   { name: 'Aaron', age: '35', location: 'New York' },
-//   { name: 'Ben', age: '30', location: 'Los Angeles' }
-// ]
+import { StyledTable, HeaderValue } from './Table.styled'
 
 interface ISortableTableProps {
   items: Array<object>
   headerCells: Array<string> | undefined
+}
+
+interface IHeader {
+  id: string
+  value: string
 }
 
 export const SortableTable = ({
@@ -25,24 +18,46 @@ export const SortableTable = ({
   headerCells = []
 }: ISortableTableProps) => {
   const [sortedRows, setRows] = useState<any>([])
-  const tableRef = useRef<any>()
+  const [headers, setHeaders] = useState<any>([])
+  const [activeHeader, setActiveHeader] = useState<string>('')
+  const [lastDirection, setDirection] = useState<string>('DESC')
+
+  useEffect(() => {
+    const cells = headerCells.map((header) => ({
+      id: uuidv4(),
+      value: header
+    }))
+    setHeaders(cells)
+  }, [headerCells, setHeaders])
 
   useEffect(() => {
     const rows = items.map((item) => ({ id: uuidv4(), ...item }))
-    // console.log('loggign rows', rows)
     setRows(rows)
   }, [items, setRows])
 
-  const cells = headerCells.map((header) => ({
-    id: uuidv4(),
-    value: header
-  }))
-
-  const handleSort = () => {
+  const handleSort = (val: string) => {
+    setActiveHeader(val)
     const newArr = [...sortedRows]
     const sortRows = newArr.sort((a, b) => {
-      var nameA = a.name.toUpperCase() // ignore upper and lowercase
-      var nameB = b.name.toUpperCase() // ignore upper and lowercase
+      var nameA = a[val].toUpperCase() // ignore upper and lowercase
+      var nameB = b[val].toUpperCase() // ignore upper and lowercase
+
+      // if ASC set to DESC
+      if (lastDirection === 'ASC') {
+        setDirection('DESC')
+        if (nameA < nameB) {
+          return 1
+        }
+        if (nameA > nameB) {
+          return -1
+        }
+
+        // names must be equal
+        return 0
+      }
+
+      // otherwise DESC so set ASC
+      setDirection('ASC')
       if (nameA < nameB) {
         return -1
       }
@@ -60,22 +75,26 @@ export const SortableTable = ({
     <StyledTable data-testid='component-sortable-table'>
       <Table.Header>
         <Table.Row>
-          {cells.map((cell) => (
+          {headers.map((header: IHeader) => (
             <Table.HeaderCell
-              key={cell.id}
-              onClick={() => handleSort()}
-              data-testid={cell.value === 'name' ? 'header-cell-name' : ''}
+              key={header.id}
+              onClick={() => handleSort(header.value)}
             >
-              {cell.value}
+              <HeaderValue
+                className='header-content'
+                isActive={activeHeader === header.value}
+              >
+                {header.value}
+              </HeaderValue>
             </Table.HeaderCell>
           ))}
         </Table.Row>
       </Table.Header>
       <Table.Body>
-        {sortedRows.map((row) => (
+        {sortedRows.map((row: any) => (
           <Table.Row key={row.id}>
-            {cells.map((cell) => (
-              <Table.Cell key={cell.id}>{row[cell.value] || ''}</Table.Cell>
+            {headers.map((header: IHeader) => (
+              <Table.Cell key={header.id}>{row[header.value] || ''}</Table.Cell>
             ))}
           </Table.Row>
         ))}

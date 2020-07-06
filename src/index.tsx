@@ -7,3 +7,4 @@ ReactDOM.render(<App />, document.getElementById('root'))
 export { SearchDropdown } from './SearchDropdown/SearchDropdown'
 export { Dropdown } from './Dropdown/Dropdown'
 export { Toggle } from './Toggle/Toggle'
+export { Table } from './Table/Table'

@@ -12,9 +12,11 @@ npm install --save j-components-react
 
 > Let me know if there is a component you would like me to implement
 >
-> Components: Search Input Dropdown, Single Select Dropdown, Toggle, Button
+> Components: Search Dropdown, Sortable Table, Dropdown, Toggle, Button
 
 ## Usage
+
+> Search Dropdown
 
 ```tsx
 import React, { useCallback } from 'react'
@@ -48,6 +50,28 @@ const App = () => {
       </SearchDropdown>
     </div>
   )
+}
+```
+
+> Sortable Table
+
+```tsx
+import React from 'react'
+import { Table } from 'j-components-react'
+
+const items = [
+  { name: 'Alexis', age: 29, location: 'New York' },
+  { name: 'Rachel', age: 25, location: 'Texas' },
+  { name: 'Ben', age: 27, location: 'Nevada' },
+  { name: 'Jack', age: 35, location: 'Alabama' },
+  { name: 'Max', age: 38, location: 'California' },
+  { name: 'Jessica', age: 37, location: 'Florida' }
+]
+
+const headerCells = ['name', 'age', 'location']
+
+const TableExample = () => {
+  return <Table items={items} headerCells={headerCells} />
 }
 ```
 

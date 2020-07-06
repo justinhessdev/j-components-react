@@ -4,17 +4,23 @@ export const StyledTable = styled.table`
   width: 100%;
   border: 1px solid #ddd;
   border-collapse: collapse;
+
   tbody tr:nth-child(odd) {
     background-color: #f2f2f2;
+  }
+
+  thead tr,
+  tbody tr:nth-child(even) {
+    background-color: #ffffff;
   }
 
   th,
   td {
     padding: 16px;
+    text-align: left;
   }
 
   thead tr th {
-    text-align: left;
     cursor: pointer;
 
     :hover {

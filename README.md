@@ -75,6 +75,10 @@ const TableExample = () => {
 }
 ```
 
+### TESTING
+`npm jest --watch`
+
+
 ## License
 
 MIT © [justinhessdev](https://github.com/justinhessdev)
